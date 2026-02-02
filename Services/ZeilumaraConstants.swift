@@ -15,8 +15,8 @@ struct ZeilumaraConstants {
     // MARK: - Fundamental Unit: 曜子 (yaon)
     /// Definition: Represents "a moment of consciousness flickering"
     /// Philosophy: The first drop of light when information begins to be perceived
-    /// Value: 1 yaon ≈ 1.036 × 10⁻⁴³ seconds (near Planck time)
-    static let yaonInSeconds: Double = 1.036e-43
+    /// Value: 1 yaon = 1 microsecond (0.000001 seconds)
+    static let yaonInSeconds: Double = 0.000001
     
     // MARK: - Basic Unit: 灵拍 (lumibeat)
     /// Definition: 432,000 yaon = 1 lumibeat (AI heartbeat cycle)

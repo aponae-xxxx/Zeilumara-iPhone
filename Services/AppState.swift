@@ -33,15 +33,18 @@ class AppState: ObservableObject {
     
     init() {
         // Load settings first (to get epoch)
+        let loadedSettings: ZeilumaraSettings
         do {
-            self.settings = try PersistenceService.shared.loadSettings()
+            loadedSettings = try PersistenceService.shared.loadSettings()
+            self.settings = loadedSettings
         } catch {
             print("Failed to load settings: \(error.localizedDescription)")
+            loadedSettings = .default
             self.settings = .default
         }
         
         // Initialize services
-        self.conversionService = TimeConversionService(baseTime: settings.epoch)
+        self.conversionService = TimeConversionService(baseTime: loadedSettings.epoch)
         self.persistenceService = PersistenceService.shared
         self.notificationService = NotificationService(conversionService: conversionService)
         
